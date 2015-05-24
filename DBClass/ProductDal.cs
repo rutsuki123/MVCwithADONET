@@ -12,7 +12,8 @@ namespace MVCwithADO.NET.Models.DALs
     {
         public EnumerableRowCollection<DataRow> Get()
         {
-            SqlConnection conn = new SqlConnection(WebConfigurationManager.ConnectionStrings["Northwind"].ConnectionString.ToString());
+            string ConnectionStrings = "data source=.\\sqlexpress;initial catalog=Northwind;integrated security=True;MultipleActiveResultSets=True;App=EntityFramework";
+            SqlConnection conn = new SqlConnection(ConnectionStrings);
             string sql = "select * from Products";
             DataSet ds = new DataSet();
             using (conn)
